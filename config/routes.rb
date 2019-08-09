@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   get 'admin' => 'admin#index'
   controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
+    get 'new_user_session' => :create
+    post 'user_session' => :create
+    delete 'destroy_user_session' => :destroy
   end
-  
+
   resources :users
   resources :products do
     get :who_bought, on: :member
