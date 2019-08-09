@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-  end
 
   # GET /orders/new
   def new
@@ -23,7 +22,6 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
-  end
 
   # POST /orders
   # POST /orders.json
@@ -37,9 +35,9 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
         ChargeOrderJob.perform_later(@order,pay_type_params.to_h)
         format.html { redirect_to store_index_url(locale: I18n.locale),
-        notice: I18n.t('.thanks') }
+                      notice: I18n.t('.thanks') }
         format.html { redirect_to store_index_url, notice:
-        'Thank you for your order.' }
+                      'Thank you for your order.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

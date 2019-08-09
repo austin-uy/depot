@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-  end
 
   # GET /products/new
   def new
@@ -19,7 +18,6 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-  end
 
   # POST /products
   # POST /products.json
@@ -44,10 +42,9 @@ class ProductsController < ApplicationController
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
-      
+
         @products = Product.all
-        ActionCable.server.broadcast 'products',
-              html: render_to_string('store/index', layout: false)
+        ActionCable.server.broadcast 'products', html: render_to_string('store/index', layout: false)
       else
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }

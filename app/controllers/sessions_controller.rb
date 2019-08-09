@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   skip_before_action :authorize
 
   def new
-  end
 
   def create
     user = User.find_by(email: params[:email])
@@ -16,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to store_index_url, notice: "Logged out"
+    redirect_to store_index_url, notice: 'Logged out'
   end
 end
