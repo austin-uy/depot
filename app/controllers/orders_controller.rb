@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+  end
 
   # GET /orders/new
   def new
@@ -22,6 +23,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+  end
 
   # POST /orders
   # POST /orders.json
