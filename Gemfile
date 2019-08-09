@@ -68,3 +68,5 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'i18n-js'
 
 gem 'devise'
+
+gem 'kaminari'
