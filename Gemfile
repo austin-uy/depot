@@ -70,3 +70,5 @@ gem 'i18n-js'
 gem 'devise'
 
 gem 'kaminari'
+
+gem 'react-rails'

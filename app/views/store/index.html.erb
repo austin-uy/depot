@@ -3,35 +3,15 @@
 <% end %>
 
 <h1><%= t('.title_html') %></h1>
-<!--
-<%= content_tag :div,
-id: "store-jsx",
-data: @products.to_json do %>
-<% end %>
--->
+
+<!--<div id='store-component'></div>-->
+
 <ul class="catalog">
-  <% cache @products do %>
-    <% @products.each do |product| %>
-      <% cache product do %>
-        <li>
-          <%= image_tag(product.image_url) %>
-          <h2><%= product.title %></h2>
-          <p>
-            <%= sanitize(product.description) %>
-          </p>
-          <div class="price">
-            <%= number_to_currency(product.price) %>
-            <%= button_to t('.add_html'), line_items_path(product_id: product, locale: I18n.locale),
-            remote: true %>
-          </div>
-        </li>
-      <% end %>
-    <% end %>
-  <% end %>
+  <%= render partial: 'index', locals: {products: @products} %>
 </ul>
 
 
 <%= link_to "Prev", prev_page_url, :remote => true %>
-<b id="page"><%= render :partial => "page" %></b>
+<b id="page"><%= render partial: 'page', locals: {current_page: $current_page} %></b>
 <%= link_to "Next", next_page_url, :remote => true %>
 

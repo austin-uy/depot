@@ -16,15 +16,18 @@ class StoreController < ApplicationController
 
   def next_page
     $current_page += 1 if $current_page < Product.page(1).per(3).total_pages
+    @products = Product.order(:title).page($current_page).per(3)
     respond_to do |format|
-      format.js { render :index }
+      format.js { render partial: "index", locals: {products: @products} }
+      format.js { render partial: "page", locals: {current_page: $current_page} }
     end
   end
 
   def prev_page
     $current_page -= 1 if $current_page > 1
     respond_to do |format|
-      format.js { render :index }
+      format.js { render partial: "index", locals: {products: @products} }
+      format.js { render partial: "page", locals: {current_page: $current_page} }
     end
   end
 end
