@@ -18,7 +18,7 @@ class StoreController < ApplicationController
     $current_page += 1 if $current_page < Product.page(1).per(3).total_pages
     @products = Product.order(:title).page($current_page).per(3)
     respond_to do |format|
-      format.js
+      format.js { render :action => "index" }
     end
   end
 
@@ -26,7 +26,7 @@ class StoreController < ApplicationController
     $current_page -= 1 if $current_page > 1
     @products = Product.order(:title).page($current_page).per(3)
     respond_to do |format|
-      format.js
+      format.js { render :action => "index" }
     end
   end
 end

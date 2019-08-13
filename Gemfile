@@ -72,3 +72,6 @@ gem 'devise'
 gem 'kaminari'
 
 gem 'react-rails'
+
+gem 'jquery-rails'
+
