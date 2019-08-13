@@ -4,7 +4,6 @@ class StoreController < ApplicationController
   skip_before_action :authenticate_user!
   include CurrentCart
   before_action :set_cart
-
   $current_page = 1
 
   def index
@@ -18,14 +17,14 @@ class StoreController < ApplicationController
   def next_page
     $current_page += 1 if $current_page < Product.page(1).per(3).total_pages
     respond_to do |format|
-      
+      format.js { render :index }
     end
   end
 
   def prev_page
     $current_page -= 1 if $current_page > 1
     respond_to do |format|
-      
+      format.js { render :index }
     end
   end
 end
