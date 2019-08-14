@@ -75,3 +75,4 @@ gem 'react-rails'
 
 gem 'jquery-rails'
 
+gem "paperclip", "~> 6.0.0"
