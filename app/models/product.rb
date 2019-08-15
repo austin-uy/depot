@@ -8,11 +8,11 @@ class Product < ApplicationRecord
   validates :title, uniqueness: true
   has_attached_file :image_url, styles: { :medium => "200x200>" }, default_url: "/assets/missing.png"
   validates_attachment_content_type :image_url, content_type: /\Aimage\/.*\Z/
-  attr_accessor :image_url_file_name
+  
   # validates :image_url, allow_blank: true, format: {
   #   with: %r{\.(gif|jpg|png)\Z}i,
   #   message: 'must be a URL for GIF, JPG or PNG image.'
-  # }
+  # }#seeding
 
   private
   # ensure that there are no line items referencing this product
