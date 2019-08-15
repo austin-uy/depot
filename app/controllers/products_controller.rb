@@ -24,8 +24,12 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
-
+    @product = Product.create!(product_params)
+    if @product.image_url.present?
+      puts 'FILE PRESENT FILE PRESENT FILE PRESENT'
+    else
+      puts 'FILE MISSING FILE MISSING FILE MISSING'
+    end
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
