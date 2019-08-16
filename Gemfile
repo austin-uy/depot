@@ -75,4 +75,6 @@ gem 'react-rails'
 
 gem 'jquery-rails'
 
-gem "paperclip", "~> 6.0.0"
+gem 'paperclip', '~> 6.0.0'
+
+gem 'mysql2'
