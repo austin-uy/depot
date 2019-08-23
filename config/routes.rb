@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :carts
+    resources :line_items
+    resources :orders
+    resources :products
+
+    root to: 'users#index'
+  end
+
   devise_for :users
-  get 'admin' => 'admin#index'
   controller :sessions do
     get 'new_user_session' => :create
     post 'user_session' => :create
     delete 'destroy_user_session' => :destroy
   end
 
-  resources :users
   resources :products do
     get :who_bought, on: :member
   end
@@ -20,7 +28,7 @@ Rails.application.routes.draw do
   scope '(:locale)' do
     resources :orders
     resources :line_items
-    resources :carts
+    resources :cart
     root 'store#index', as: 'store_index'
   end
 

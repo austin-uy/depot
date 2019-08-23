@@ -78,3 +78,7 @@ gem 'jquery-rails'
 gem 'paperclip', '~> 6.0.0'
 
 gem 'mysql2'
+
+gem 'administrate'
+
+gem 'administrate-field-paperclip'
