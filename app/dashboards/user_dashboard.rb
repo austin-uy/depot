@@ -18,6 +18,7 @@ class UserDashboard < Administrate::BaseDashboard
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
     remember_created_at: Field::DateTime,
+    user_type: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,7 +29,7 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
   id
   name
-  password_digest
+  user_type
   created_at
   ].freeze
 
@@ -37,6 +38,7 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   id
   name
+  user_type
   password_digest
   created_at
   updated_at
@@ -53,6 +55,7 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   name
   email
+  user_type
   ].freeze
 
   # COLLECTION_FILTERS

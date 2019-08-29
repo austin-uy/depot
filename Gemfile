@@ -82,3 +82,5 @@ gem 'mysql2'
 gem 'administrate'
 
 gem 'administrate-field-paperclip'
+
+gem "pundit"

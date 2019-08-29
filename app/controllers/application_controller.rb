@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+  protect_from_forgery
   before_action :set_i18n_locale_from_params
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected 
   def authorize
@@ -19,5 +22,9 @@ class ApplicationController < ActionController::Base
         logger.error flash.now[:notice]
       end
     end
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end
