@@ -6,12 +6,12 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_user!
     before_action :set_i18n_locale
-
-    def authenticate_admin
-      # TODO Add authentication logic here.
+    before_action :authenticate_user!
+    before_action do
+      redirect_to store_index_url, notice: "Access to page denied." unless current_user.admin?
     end
+    
 
     def set_i18n_locale
       if params[:locale]
