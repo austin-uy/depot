@@ -18,7 +18,7 @@ class UserDashboard < Administrate::BaseDashboard
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
     remember_created_at: Field::DateTime,
-    user_type: Field::String,
+    user_type: Field::Select.with_options(collection: User.user_types.keys),
   }.freeze
 
   # COLLECTION_ATTRIBUTES

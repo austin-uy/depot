@@ -5,7 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, uniqueness: true
   # has_secure_password
-  def admin?
-    self.user_type.eql? "admin"
-  end
+  enum user_type: [:user, :admin]
 end

@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    user.user_type.eql? "admin"
+    user.admin?
   end
 
   def show?
